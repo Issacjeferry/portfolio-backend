@@ -5,6 +5,8 @@ import com.issac.portfolio.service.ContactMessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/contact")
 @RequiredArgsConstructor
@@ -16,5 +18,10 @@ public class ContactController {
     public String sendMessage(@RequestBody ContactMessage message) {
         contactMessageService.saveMessage(message);
         return "Message sent successfully";
+    }
+
+    @GetMapping
+    public List<ContactMessage> getAllContacts() {
+        return contactMessageService.getAllContacts();
     }
 }

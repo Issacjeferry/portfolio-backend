@@ -6,6 +6,8 @@ import com.issac.portfolio.service.ContactMessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class ContactMessageServiceImpl implements ContactMessageService {
@@ -15,5 +17,10 @@ public class ContactMessageServiceImpl implements ContactMessageService {
     @Override
     public ContactMessage saveMessage(ContactMessage message) {
         return repository.save(message);
+    }
+
+    @Override
+    public List<ContactMessage> getAllContacts() {
+        return repository.findAll();
     }
 }
